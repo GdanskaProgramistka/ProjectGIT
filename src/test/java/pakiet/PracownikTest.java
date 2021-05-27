@@ -54,6 +54,33 @@ public class PracownikTest {
         assertFalse(actual);
     }
 
+    @ParameterizedTest
+    @ValueSource(doubles = {0.0, 10.83, 120.02, 250, 350.10, 999.99})
+    public void jestBiedakiem_wyplataPonizejProgu_zwracaTrue(double wyplata) {
+        //given
+        Pracownik typek = new Pracownik("Typkowski", wyplata);
+
+        //when
+        boolean actual = typek.jestBiedakiem();
+
+        //then
+        assertTrue(actual);
+    }
+
+    @ParameterizedTest
+    @ValueSource(doubles = {1000.1, 1200.02, 1500.30, 2000, 2010.06})
+    public void jestBiedakiem_wyplataPowyzejProgu_zwracaFalse(double wyplata) {
+        //given
+        Pracownik ziomek = new Pracownik("Ziomkowski", wyplata);
+
+        //when
+        boolean actual = ziomek.jestBiedakiem();
+
+        //then
+        assertFalse(actual);
+    }
+
+
 //    1.
 //    @Test
 //    public void zlyTest_zaleznoscOdSrodowiska() throws IOException {
