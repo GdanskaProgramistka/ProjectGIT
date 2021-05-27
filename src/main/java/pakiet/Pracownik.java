@@ -38,8 +38,11 @@ public class Pracownik {
 
     public boolean jestBiedakiem() { return wyplata < WYPLATA_MINIMALNA; }
 
+    public String pracownikWita() {
+        return "Cześć, jestem" + imie;
+    }
+
     public boolean jestemPiekny() {
         return true;
     }
-
 }
