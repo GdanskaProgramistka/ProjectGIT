@@ -3,6 +3,8 @@ package pakiet;
 public class Pracownik {
     private String imie;
     private double wyplata;
+    private final double WYPLATA_MINIMALNA = 1000;
+    private final double WYPLATA_SREDNIA = 1500;
 
     public Pracownik(String imie, double wyplata) {
         this.imie = imie;
@@ -11,7 +13,7 @@ public class Pracownik {
 
     public Pracownik(String imie) {
         this.imie = imie;
-        this.wyplata = 1000;
+        this.wyplata = WYPLATA_MINIMALNA;
     }
 
     public String getImie() {
@@ -27,12 +29,12 @@ public class Pracownik {
     }
 
     public boolean jestBogaczem() {
-        return wyplata > 1500;
+        return wyplata > WYPLATA_SREDNIA;
     }
 
     public String duzeImie() {
         return imie.toUpperCase();
     }
 
-    public boolean jestBiedakiem() { return wyplata < 1000; }
+    public boolean jestBiedakiem() { return wyplata < WYPLATA_MINIMALNA; }
 }

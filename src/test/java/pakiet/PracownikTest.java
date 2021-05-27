@@ -54,10 +54,11 @@ public class PracownikTest {
         assertFalse(actual);
     }
 
-    @Test
-    public void jestBiedakiem_wyplataPonizejProgu_zwracaTrue() {
+    @ParameterizedTest
+    @ValueSource(doubles = {0.0, 10.83, 120.02, 250, 350.10, 999.99})
+    public void jestBiedakiem_wyplataPonizejProgu_zwracaTrue(double wyplata) {
         //given
-        Pracownik typek = new Pracownik("Typkowski", 900);
+        Pracownik typek = new Pracownik("Typkowski", wyplata);
 
         //when
         boolean actual = typek.jestBiedakiem();
@@ -66,10 +67,11 @@ public class PracownikTest {
         assertTrue(actual);
     }
 
-    @Test
-    public void jestBiedakiem_wyplataPowyzejProgu_zwracaFalse() {
+    @ParameterizedTest
+    @ValueSource(doubles = {1000.1, 1200.02, 1500.30, 2000, 2010.06})
+    public void jestBiedakiem_wyplataPowyzejProgu_zwracaFalse(double wyplata) {
         //given
-        Pracownik ziomek = new Pracownik("Ziomkowski", 1500);
+        Pracownik ziomek = new Pracownik("Ziomkowski", wyplata);
 
         //when
         boolean actual = ziomek.jestBiedakiem();
