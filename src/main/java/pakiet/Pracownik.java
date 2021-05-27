@@ -33,4 +33,6 @@ public class Pracownik {
     public String duzeImie() {
         return imie.toUpperCase();
     }
+
+    public boolean jestBiedakiem() { return wyplata < 1000; }
 }

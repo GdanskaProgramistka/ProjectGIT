@@ -54,6 +54,31 @@ public class PracownikTest {
         assertFalse(actual);
     }
 
+    @Test
+    public void jestBiedakiem_wyplataPonizejProgu_zwracaTrue() {
+        //given
+        Pracownik typek = new Pracownik("Typkowski", 900);
+
+        //when
+        boolean actual = typek.jestBiedakiem();
+
+        //then
+        assertTrue(actual);
+    }
+
+    @Test
+    public void jestBiedakiem_wyplataPowyzejProgu_zwracaFalse() {
+        //given
+        Pracownik ziomek = new Pracownik("Ziomkowski", 1500);
+
+        //when
+        boolean actual = ziomek.jestBiedakiem();
+
+        //then
+        assertFalse(actual);
+    }
+
+
 //    1.
 //    @Test
 //    public void zlyTest_zaleznoscOdSrodowiska() throws IOException {
