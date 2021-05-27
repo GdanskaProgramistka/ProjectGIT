@@ -41,4 +41,8 @@ public class Pracownik {
     public String pracownikWita() {
         return "Cześć, jestem" + imie;
     }
+
+    public boolean jestemPiekny() {
+        return true;
+    }
 }
